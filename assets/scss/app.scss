@@ -1,0 +1,35 @@
+@import './fonts.scss';
+@import './theme.scss';
+
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+body, html, #app {
+  height: 100%;
+}
+
+body {
+  font-family: CircularAir !important;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@import './theme.scss';
+@import './onboarding.scss';
+@import './ui.scss';
+
+.txt-d-none {
+  a {
+    text-decoration: none;
+  }
+}
+
+.row-item {
+  cursor: pointer;
+  &:hover {
+    background: var(--light);
+  };
+}
