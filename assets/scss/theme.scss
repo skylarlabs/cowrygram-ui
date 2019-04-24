@@ -11,3 +11,15 @@ $theme-colors : (
 .btn {
   padding: 12px 24px 10px;
 }
+
+input:focus, .btn:focus {
+  box-shadow: none !important;
+}
+
+.btn-primary {
+  border: 1px solid #004DA5;
+}
+
+.btn-success {
+  border: 1px solid #08A500;
+}
