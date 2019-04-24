@@ -14,7 +14,7 @@ const links = [
 
 
 const NavItem = ({ link }) => (
-  <li className="nav-item align-items-center d-flex">
+  <li className="nav-item">
     <NavLink to={ link.path } className="nav-link" activeClassName="badge badge-primary px-3 py-2">{ link.name }</NavLink>
   </li>
 )
@@ -38,7 +38,7 @@ class Header extends Component {
           </NavLink>
 
           <div className={ cls('collapse navbar-collapse', showNav && 'show') }>
-            <ul className="nav flex-column flex-md-row mt-3 mt-md-0 mx-auto">
+            <ul className="nav d-flex flex-column flex-md-row align-items-center mt-3 mt-md-0 mx-auto">
               { links.map((link, index) => ( <NavItem link={ link } key={`nav-${index}`} /> )) }
             </ul>
           </div>
