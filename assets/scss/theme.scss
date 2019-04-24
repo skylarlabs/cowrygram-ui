@@ -2,17 +2,20 @@ $primary-color: #0076FF;
 $light-color: #F8FBFD;
 $success-color: #0BDC00;
 
+$secondary-color: #004DA5;
+$shadow: #aeaeae;
+
 $theme-colors : (
   'primary'   : $primary-color,
   'light'     : $light-color,
   'success'   : $success-color
 );
 
-.btn {
+.btn-sp {
   padding: 12px 24px 10px;
 }
 
-input:focus, .btn:focus {
+input:focus, .btn:focus, a:focus {
   box-shadow: none !important;
 }
 
@@ -22,4 +25,17 @@ input:focus, .btn:focus {
 
 .btn-success {
   border: 1px solid #08A500;
+}
+
+table thead th {
+  border-bottom: 0px !important;
+}
+
+.modal.fade.show {
+  display: block;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: rgba(#000000, 0.45);
 }

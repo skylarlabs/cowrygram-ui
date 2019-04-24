@@ -9,6 +9,11 @@ import LoginContainer from './containers/onboarding/login';
 import RegisterContainer from './containers/onboarding/register';
 
 
+import SendMoneyContainer from './containers/send/send-money';
+import RecipientContainer from './containers/recipients';
+import TransfersContainer from './containers/transfers';
+
+
 class App extends Component {
     render() {
     return (
@@ -17,6 +22,10 @@ class App extends Component {
           <Switch>
             <Route exact path='/login' component={ LoginContainer } />
             <Route exact path='/register' component={ RegisterContainer } />
+
+            <Route exact path='/send' component={ SendMoneyContainer } />
+            <Route exact path='/recipients' component={ RecipientContainer } />
+            <Route exact path='/transfers' component={ TransfersContainer } />
           </Switch>
         </Router>
       </Provider>

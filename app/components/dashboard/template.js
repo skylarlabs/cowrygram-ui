@@ -6,9 +6,14 @@ import Header from './header';
 class Template extends Component {
   render() {
     return (
-      <main>
+      <main className="d-flex flex-column h-100 bg-light">
         <Header />
-        { this.props.children }
+
+        <div className="container flex-grow-1 mx-auto p-5">
+          <div className="card h-100">
+            { this.props.children }
+          </div>
+        </div>
       </main>
     )
   }

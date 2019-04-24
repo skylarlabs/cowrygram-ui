@@ -19,7 +19,7 @@ class LoginContainer extends Component {
 
             <NavLink to="/register" className="float-right mb-3 font-weight-bold">Don't have an account ? Register here.</NavLink>
 
-            <Button className="btn-primary btn-block font-weight-bold" type="submit">Log In</Button>
+            <Button className="btn-primary btn-sp btn-block font-weight-bold" type="submit">Log In</Button>
           </form>
         </div>
       </Template>
