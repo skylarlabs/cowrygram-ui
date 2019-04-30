@@ -9,7 +9,7 @@ class Template extends Component {
       <main className="d-flex flex-column h-100 bg-light">
         <Header />
 
-        <div className="container flex-grow-1 mx-auto p-5">
+        <div className="container flex-grow-1 mx-auto p-md-5">
           <div className="card h-100">
             { this.props.children }
           </div>

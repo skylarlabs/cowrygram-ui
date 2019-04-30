@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { cls, clsIf } from '../util';
 import { Button } from './buttons';
-import { IcClose } from './icons';
-
 
 class Modal extends Component {
   render() {
@@ -10,8 +8,8 @@ class Modal extends Component {
     return (
       <div className={ cls('modal fade', show && 'show') } role="dialog" tabIndex="-1">
         <div className={ cls('modal-dialog', className) } role="document">
-          <div className="my-4 float-right modal-action">
-            <Button className="btn-close-modal fw-b" onClick={ onClose }>Close <IcClose /></Button>
+          <div className="my-4 float-right modal-action pea">
+            <Button className="btn-secondary btn-rounded font-weight-bold px-4 cp" onClick={ onClose }>Close</Button>
           </div>
 
           <div className="modal-content">
@@ -24,12 +22,11 @@ class Modal extends Component {
 };
 
 const ModalTitle = (props) => {
-  const { title, children } = props;
+  const { children } = props;
 
   return (
     <div className="modal-header d-block">
-      <h5 className="modal-title text-center font-weight-bold">{ title }</h5>
-      { children }
+      <h5 className="modal-title text-center font-weight-bold">{ children }</h5>
     </div>
   )
 };

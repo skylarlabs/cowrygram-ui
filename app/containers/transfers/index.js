@@ -1,33 +1,38 @@
 import React, { Component } from 'react';
-import Template from '../../components/dashboard/template';
+import { inject, observer } from 'mobx-react';
+
 import { Button } from '../../components/ui/buttons';
+import OpSpinner from '../../components/ui/op-spinner';
+import Template from '../../components/dashboard/template';
+import TransfersTable from '../../components/transfers/transfers-table';
+import Message from '../../components/ui/message';
 
 
+@inject('TransferStore')
+@observer
 class TransfersContainer extends Component {
+  store = () => this.props.TransferStore;
+
+  componentDidMount() {
+    this.store().fetch();
+  }
+
   render() {
+    const { transfers, isLoading, error } = this.store();
+
     return (
       <Template>
-        <div className="p-3">Transfers</div>
+        <div className="px-3 py-2 d-flex align-items-center">Transfers</div>
 
-        <table className="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Recipient</th>
-              <th>Amount</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="row-item border-bottom">
-              <td>1</td>
-              <td>To Amex ending with xx45</td>
-              <td>NGN 122</td>
-              <td>4/25-2019</td>
-            </tr>
-          </tbody>
-        </table>
+        { transfers.length > 0 && !isLoading && <TransfersTable transfers={ transfers } /> }
+        { transfers.length == 0 && !isLoading &&
+          <Message className="m-auto">You have not made any transfers yet, Go to the
+            <span className="badge badge-primary mx-3">Send</span>
+            page and make your first transfers.
+          </Message>
+        }
 
+        <OpSpinner loading={ isLoading } />
       </Template>
     )
   }

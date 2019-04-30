@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Template from '../../components/dashboard/template';
+import { NavLink } from 'react-router-dom';
 import { Button } from '../../components/ui/buttons';
+import Template from '../../components/dashboard/template';
+import SendMoneyModal from './send-modal';
 
 
 class SendMoneyContainer extends Component {
@@ -11,7 +13,7 @@ class SendMoneyContainer extends Component {
           <div className="col-7 col-lg-5 border p-5 text-center f-shadow rounded">
             <h5 className="font-weight-bold">Send Money</h5>
             <h6 className="text-muted">Start sending money now!</h6>
-            <Button className="btn-primary mt-4">Send Money</Button>
+            <NavLink to="/send/quote" className="btn btn-primary mt-4">Send Money</NavLink>
           </div>
         </div>
       </Template>

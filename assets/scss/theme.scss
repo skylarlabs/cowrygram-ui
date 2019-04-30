@@ -7,9 +7,12 @@ $shadow: #aeaeae;
 
 $theme-colors : (
   'primary'   : $primary-color,
+  'secondary' : $secondary-color,
   'light'     : $light-color,
   'success'   : $success-color
 );
+
+$enable-caret: false;
 
 .btn-sp {
   padding: 12px 24px 10px;

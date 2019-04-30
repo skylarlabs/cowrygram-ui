@@ -5,27 +5,35 @@ import { Provider, inject, observer } from 'mobx-react';
 
 import '../assets/scss/app.scss';
 
+import ProtectedRoute from './components/dashboard/routes';
+
 import LoginContainer from './containers/onboarding/login';
 import RegisterContainer from './containers/onboarding/register';
 
 
-import SendMoneyContainer from './containers/send/send-money';
+import SendMoneyContainer from './containers/send';
+import QuoteContainer from './containers/send/quote';
+
 import RecipientContainer from './containers/recipients';
 import TransfersContainer from './containers/transfers';
 
+import stores from './store';
+
+window.__APP_STATE__ = stores;
 
 class App extends Component {
     render() {
     return (
-      <Provider>
+      <Provider { ...stores }>
         <Router>
           <Switch>
             <Route exact path='/login' component={ LoginContainer } />
             <Route exact path='/register' component={ RegisterContainer } />
 
-            <Route exact path='/send' component={ SendMoneyContainer } />
-            <Route exact path='/recipients' component={ RecipientContainer } />
-            <Route exact path='/transfers' component={ TransfersContainer } />
+            <ProtectedRoute exact path='/send' component={ SendMoneyContainer } />
+            <ProtectedRoute exact path='/send/quote' component={ QuoteContainer } />
+            <ProtectedRoute exact path='/recipients' component={ RecipientContainer } />
+            <ProtectedRoute exact path='/transfers' component={ TransfersContainer } />
           </Switch>
         </Router>
       </Provider>

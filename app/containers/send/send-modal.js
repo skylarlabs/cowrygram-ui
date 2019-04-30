@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
 import Template from '../../components/dashboard/template';
+import { Input } from '../../components/ui/inputs';
 import { Button } from '../../components/ui/buttons';
+import { Modal, ModalTitle, ModalBody, ModalFooter } from '../../components/ui/modal';
+import Spinner from '../../components/ui/progress';
 
 
-class SendMoneyContainer extends Component {
+class AddRecipientModal extends Component {
   render() {
     return (
-      <Template>
-        <div className="card-body d-flex align-items-center justify-content-center">
-          <div className="col-7 border py-4 px-5 text-center">
-            <h5 className="font-weight-bold">Send Money</h5>
-            <h6 className="text-muted">Start sending money now!</h6>
-            <Button className="btn-primary mt-4">Send Money</Button>
-          </div>
-        </div>
-      </Template>
+      <Modal show={ false }>
+        <ModalTitle>Add Recipient</ModalTitle>
+
+        <ModalBody>
+          <Input className="form-control mb-3 p-4" placeholder="Recipient Name" />
+          <Input className="form-control mb-3 p-4" type="email" placeholder="Recipient Email Address" />
+          <Input className="form-control mb-3 p-4" placeholder="IBAN" />
+          <Input className="form-control mb-3 p-4" placeholder="Swift Code" />
+        </ModalBody>
+
+        <ModalFooter>
+          <Button className="btn-secondary">Close</Button>
+          <Button className="btn-primary d-flex">Add Recipient<Spinner show={ true } klass="action-spinner" /></Button>
+        </ModalFooter>
+      </Modal>
     )
   }
 }
 
-export default SendMoneyContainer;
+export default AddRecipientModal;

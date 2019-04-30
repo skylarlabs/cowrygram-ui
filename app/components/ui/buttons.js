@@ -1,6 +1,7 @@
 import React from 'react';
 import { cls } from '../util';
 import { ContainerElement } from './util';
+import Spinner from './progress';
 
 const BorderedButton = (props) => {
   const { children, className, ...rest } = props;
@@ -16,9 +17,13 @@ const Button = (props) => {
 }
 
 const ActionButton = (props) => {
-  const { icon: Icon, klass, children } = props;
+  const { className, loading, children, ...rest } = props;
+
   return (
-    <Button className={ klass }>{ children }<Icon /></Button>
+    <Button className={ cls(className, 'position-relative') } { ...rest } disabled={ loading }>
+      { children }
+      <Spinner show={ loading } klass="action-spinner position-absolute d-inline-block" />
+    </Button>
   )
 }
 

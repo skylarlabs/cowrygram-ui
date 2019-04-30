@@ -35,6 +35,10 @@ ul {
   cursor: pointer;
 }
 
+.pea {
+  pointer-events: all !important;
+}
+
 .f-shadow {
   box-shadow: 0px 2px 5px #eceaea;
 }
