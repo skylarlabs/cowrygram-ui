@@ -78,3 +78,16 @@ tbody tr {
 .quote-fees li:last-child {
   padding-bottom: 8px;
 }
+
+
+.select--recipient {
+  .css-1hwfws3, .css-1wy0on6, .css-czx99k-option {
+    cursor: pointer !important;
+  }
+}
+
+.recipient-detail {
+  li {
+    line-height: 40px;
+  }
+}

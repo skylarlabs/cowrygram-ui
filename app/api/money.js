@@ -6,6 +6,7 @@ class Money extends Endpoint {
   }
 
   exchange = (data) => this.get('/exchange', data);
+  getQuote = (quoteId) => this.get(`/quote/${quoteId}`);
 }
 
 

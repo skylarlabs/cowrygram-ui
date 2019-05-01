@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable, action, computed } from 'mobx';
 import { mapInputToStatex } from '../util';
 
 import recipients from '../../api/recipients';
@@ -16,6 +16,7 @@ class RecipientStore {
   @observable isLoading = false;
   @observable error = null;
   @observable recipients = [];
+  @observable selectedRecipient = null;
 
   @observable modal = {
     show: false,
@@ -31,6 +32,14 @@ class RecipientStore {
     this.error = error ? error.message : null;
     this.recipients = error ? [] : data.recipients;
   }
+
+  @computed get options() {
+    return this.recipients.map((recipient, index) => ({
+      value: recipient.id, label: recipient.name, index
+    }));
+  }
+
+  @action onRecipientSelected = recipient => this.selectedRecipient = this.recipients[recipient.index];
 
   /* add-recipient-modal */
   @action toggleModal = () => this.modal.show = !this.modal.show;

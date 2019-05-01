@@ -16,6 +16,8 @@ import QuoteContainer from './containers/send/quote';
 
 import RecipientContainer from './containers/recipients';
 import TransfersContainer from './containers/transfers';
+import FundTransferContainer from './containers/send/fund-transfer';
+import ChoseRecipientContainer from './containers/send/chose-recipient';
 
 import stores from './store';
 
@@ -32,6 +34,9 @@ class App extends Component {
 
             <ProtectedRoute exact path='/send' component={ SendMoneyContainer } />
             <ProtectedRoute exact path='/send/quote' component={ QuoteContainer } />
+            <ProtectedRoute exact path='/send/:quoteId/recipient' component={ ChoseRecipientContainer } />
+            <ProtectedRoute exact path='/send/:quoteId/fund' component={ FundTransferContainer } />
+
             <ProtectedRoute exact path='/recipients' component={ RecipientContainer } />
             <ProtectedRoute exact path='/transfers' component={ TransfersContainer } />
           </Switch>

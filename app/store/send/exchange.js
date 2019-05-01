@@ -1,4 +1,4 @@
-import { observable, action, toJS } from 'mobx';
+import { observable, action, computed, toJS } from 'mobx';
 import { mapInputToStatex } from '../util';
 
 import money from '../../api/money';
@@ -37,21 +37,28 @@ class ExchangeStore {
     const popkey = this.targetSelected ? 'source_amount' : 'target_amount';
     delete form[popkey];
 
+    form[amount] = form[amount].replace(',', '');
+
     const [exchange, error] = await money.exchange(form);
     this.isLoading = false;
     this.error = error ? error.message : null;
 
     if (exchange) {
       this.exchange = exchange;
-
-      if (exchange.source_amount) {
-        this.form.source_amount = exchange.source_amount;
-      } else {
-        this.form.target_amount = exchange.target_amount;
-      }
+      this.form.source_amount = this.format(exchange.sourceAmount);
+      this.form.target_amount = this.format(exchange.targetAmount);
     }
   }
-}
+
+  format = amount => {
+    const formatted = Number(amount).toLocaleString();
+    return formatted.indexOf('.') == -1 ? `${formatted}` : formatted;
+  }
+
+  @computed get link() {
+    return this.exchange ? `/send/${ this.exchange.id }/recipient` : '';
+  }
+};
 
 
 export default new ExchangeStore();

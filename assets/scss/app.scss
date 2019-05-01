@@ -35,6 +35,11 @@ ul {
   cursor: pointer;
 }
 
+.disabled-link {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 .pea {
   pointer-events: all !important;
 }
