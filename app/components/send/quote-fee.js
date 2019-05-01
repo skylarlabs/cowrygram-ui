@@ -13,7 +13,7 @@ class QuoteFees extends Component {
         </li>
         <li>
           <span className="fee-text-l text-muted pr-2">
-            { exchange.source_amount || exchange.target_amount }
+            { exchange.targetAmount }
             <span className="font-weight-bold">{ exchange.target }</span>
           </span>
           <span className="text-muted font-weight-bold">Amount we'll convert</span>
