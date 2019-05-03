@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import Select from 'react-select'
 import { NavLink } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import { Button, ActionButton } from '../../components/ui/buttons';
-import Select from 'react-select'
-
+import { cls } from '../../components/util';
 import Template from '../../components/dashboard/template';
 import RecipientDetail from '../../components/send/recipient-detail';
 import QuoteInput from '../../components/send/quote-input';
 import QuoteFees from '../../components/send/quote-fee';
 import AddRecipientModal from '../recipients/modal';
+
 
 
 @inject('RecipientStore', 'QuoteStore')
@@ -22,6 +23,10 @@ class ChoseRecipientContainer extends Component {
 
   toggle = () => this.store().toggleModal();
   onChange = recipient => this.store().onRecipientSelected(recipient);
+
+  onContinue = e => {
+   this.store().setRecipient(this.getQuoteId());
+  }
 
   componentDidMount = () => {
     this.quoteStore().fetchQuote(this.getQuoteId());
@@ -43,7 +48,12 @@ class ChoseRecipientContainer extends Component {
             <div>
               <Select className="select--recipient my-3" options={ options } onChange={ this.onChange } isLoading={ isLoading }/>
               <RecipientDetail recipient={ selectedRecipient } quote={ quoteStore.quote } />
-              <NavLink to={ this.getNextLink() } className="btn btn-primary btn-block btn-sp">Continue</NavLink>
+              <ActionButton className="btn btn-primary btn-block btn-sp"
+                            onClick={ this.onContinue }
+                            loading={ this.isLoading }
+                            disabled={(isLoading || !selectedRecipient)}>
+                  Continue
+              </ActionButton>
             </div>
           </div>
         </div>

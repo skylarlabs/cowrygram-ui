@@ -7,6 +7,7 @@ import Message from '../ui/message';
 class TransfersTable extends Component {
   render() {
     const { transfers } = this.props;
+    console.log(transfers)
 
     return (
       <div className="table-responsive">
@@ -14,7 +15,7 @@ class TransfersTable extends Component {
           <thead>
             <tr>
               <th width="50">#</th>
-              <th width="100">status</th>
+              <th width="100">Status</th>
               <th>Recipient</th>
               <th>Amount</th>
               <th>Date</th>
@@ -25,9 +26,9 @@ class TransfersTable extends Component {
               transfers.map((transfer, index) => (
                 <tr key={`transfer-${transfer.id}`}  className="row-item border-bottom">
                   <td className="text-center">{ index + 1 }</td>
-                  <td>{ transfer.status }</td>
-                  <td>{ transfer.recipient_str }</td>
-                  <td>{ transfer.amount }</td>
+                  <td><span className="badge badge-success">Transfered</span></td>
+                  <td>{ transfer.recipient.name }</td>
+                  <td>{ transfer.amount } { transfer.target }</td>
                   <td>{ transfer.created_at }</td>
                 </tr>
               ))

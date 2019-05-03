@@ -1,8 +1,9 @@
 import { observable, action, computed } from 'mobx';
 import { mapInputToStatex } from '../util';
 
-import recipients from '../../api/recipients';
+import { recipients, money } from '../../api';
 
+import nav from '../nav';
 
 const modalForm = {
   'name': '',
@@ -39,7 +40,20 @@ class RecipientStore {
     }));
   }
 
+
+  /* select recipient */
   @action onRecipientSelected = recipient => this.selectedRecipient = this.recipients[recipient.index];
+  @action async setRecipient(quoteId) {
+    this.isLoading = true;
+    const [data, error] = await money.setRecipient(quoteId, this.selectedRecipient.id);
+
+    this.isLoading = false;
+    this.error = error ? error.message : null;
+
+    if (!error) {
+      nav.push(`/send/${quoteId}/fund`);
+    }
+  }
 
   /* add-recipient-modal */
   @action toggleModal = () => this.modal.show = !this.modal.show;

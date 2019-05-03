@@ -28,6 +28,7 @@ class QuoteContainer extends Component {
               <QuoteInput label="You Send" name="source_amount" currency="NGN" onChange={ this.onChange } value={ form.source_amount }/>
               { exchange && <QuoteFees exchange={ exchange }/> }
               <QuoteInput label="You Recieve" className="form-control mt-3" name="target_amount" currency="USD" onChange={ this.onChange } value={ form.target_amount } />
+
             </div>
 
             <NavLink className={ cls("btn btn-primary btn-block btn-sp font-weight-bold", !link && 'disabled-link') } to={ link }>Continue</NavLink>

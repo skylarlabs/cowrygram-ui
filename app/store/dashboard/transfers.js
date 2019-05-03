@@ -14,7 +14,7 @@ class TransferStore {
     const [data, error] = await transfers.fetchTransfers();
     this.isLoading = false;
     this.error = error ? error.message : null;
-    this.transgers = error ? [] : data.transgers;
+    this.transfers = error ? [] : data.transfers;
   }
 }
 

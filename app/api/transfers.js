@@ -6,6 +6,7 @@ class Transfers extends Endpoint {
   }
 
   fetchTransfers = () => this.get('/');
+  setRecipient = (form) => this.post('/recipient');
 }
 
 

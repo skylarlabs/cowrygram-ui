@@ -36,8 +36,9 @@ ul {
 }
 
 .disabled-link {
-  pointer-events: none;
   cursor: not-allowed;
+  pointer-events: none;
+  opacity: .7;
 }
 
 .pea {
