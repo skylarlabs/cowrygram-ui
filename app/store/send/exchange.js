@@ -15,12 +15,22 @@ class ExchangeStore {
   };
 
   @observable targetSelected = false;
-
   @observable exchange = null;
+  @observable targetCurrency = {
+    icon: 'flag-usd',
+    currency: 'USD',
+    name: 'United States Dollar'
+  };
 
   @action onChange(e) {
     this.targetSelected = e.target.name != 'source_amount';
     mapInputToStatex(e, this.form);
+    this.fetch();
+  }
+
+  @action setCurrency = currency  => {
+    this.form.target = currency.currency;
+    this.targetCurrency = currency;
     this.fetch();
   }
 
@@ -45,14 +55,16 @@ class ExchangeStore {
 
     if (exchange) {
       this.exchange = exchange;
-      this.form.source_amount = this.format(exchange.sourceAmount);
-      this.form.target_amount = this.format(exchange.targetAmount);
+      this.form.source_amount = this.format(exchange.source_amount);
+
+      if (!this.targetSelected)
+        this.form.target_amount = this.format(exchange.target_amount);
     }
   }
 
   format = amount => {
     const formatted = Number(amount).toLocaleString();
-    return formatted.indexOf('.') == -1 ? `${formatted}` : formatted;
+    return formatted.indexOf('.') == -1 ? `${formatted}.00` : formatted;
   }
 
   @computed get link() {

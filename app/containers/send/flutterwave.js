@@ -8,7 +8,7 @@ import money from '../../api/money';
 
 @withRouter
 class FlutterWaveComponent extends Component {
-  scriptUrl = 'https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js';
+  scriptUrl = 'https://js.paystack.co/v1/inline.js';
 
   state = {
     loading: true,
@@ -25,13 +25,13 @@ class FlutterWaveComponent extends Component {
       console.log(this.state.fw));
   }
 
-
   onPayClick = e => {
-    console.log('clicked')
     var PBFKey = "FLWPUBK_TEST-ab8ec44695dd20c6f70affd21aabd4a1-X";
     const _this = this;
 
-    window.paySetup = window.getpaidSetup({
+    if (!this.state.fw) return;
+
+/*    window.paySetup = window.getpaidSetup({
       ...this.state.fw,
       onclose: function() {},
       callback: function(response) {
@@ -42,20 +42,49 @@ class FlutterWaveComponent extends Component {
         ) {
           paySetup.close();
 
-          _this.setState({ loading: true });
-          const { quoteId } = _this.props.match.params;
-
-          money.transfer(quoteId).then(data => {
-            _this.props.history.push(`/send/${quoteId}/transfer/success`);
-          });
-
           window.paySetup = null;
         } else {
             _this.props.history.push(`/send/${quoteId}/transfer/failure`);
           // redirect to a failure page.
         }
       }
+    });*/
+
+    var handler = window.PaystackPop.setup({
+      key: 'pk_test_cff34c5958c71a3cb6b3c0497d5dd55802fe2f2d',
+      email: 'tomi.jr@gmail.com',
+      amount: _this.state.fw.amount * 100,
+      currency: "NGN",
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      firstname: 'Tomi',
+      lastname: 'Hassan',
+      // label: "Optional string that replaces customer email"
+      metadata: {
+         custom_fields: [
+            {
+                display_name: "Mobile Number",
+                variable_name: "mobile_number",
+                value: "+2348012345678"
+            }
+         ]
+      },
+      callback: function(response){
+        _this.setState({ loading: true });
+        const { quoteId } = _this.props.match.params;
+
+        money.transfer(quoteId).then(data => {
+          _this.props.history.push(`/send/${quoteId}/transfer/success`);
+        });
+
+
+          // alert('success. transaction ref is ' + response.reference);
+      },
+      onClose: function(){
+          alert('window closed');
+      }
     });
+
+    handler.openIframe();
   }
 
   render() {

@@ -91,3 +91,26 @@ tbody tr {
     line-height: 40px;
   }
 }
+
+.currencies {
+  .currency-item {
+    line-height: 35px;
+
+    &:last-child {
+      border-bottom: 0 !important;
+    }
+  }
+
+}
+
+
+@media (max-width: 425px) {
+  .btn-quote-currency {
+    width: 100px !important;
+    min-width: 0;
+
+    .flag {
+      display: none;
+    }
+  }
+}

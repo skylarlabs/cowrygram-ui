@@ -25,3 +25,7 @@ export const togglestate = ({ currentTarget }, state) => {
 export const clsIf = (def, condition, cls) => {
   return def + (condition ? ` ${cls}` : '');
 }
+
+export const search = (source, query) => (
+  source.toLowerCase().indexOf(query.toLowerCase()) != -1
+)

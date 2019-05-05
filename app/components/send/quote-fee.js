@@ -13,7 +13,7 @@ class QuoteFees extends Component {
         </li>
         <li>
           <span className="fee-text-l text-muted pr-2">
-            { exchange.targetAmount }
+            { exchange.target_amount }
             <span className="font-weight-bold"> { exchange.target }</span>
           </span>
           <span className="text-muted font-weight-bold">Amount we'll convert</span>
@@ -24,7 +24,7 @@ class QuoteFees extends Component {
         </li>
         <li>
           <span className="fee-text-l text-muted">By</span>
-          <span className="text-muted">{ new Date(exchange.deliveryEstimate).toLocaleString() }</span>
+          <span className="text-muted">{ exchange.expected_delivery }</span>
         </li>
       </ul>
     )
