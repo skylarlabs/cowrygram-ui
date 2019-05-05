@@ -55,10 +55,11 @@ class ExchangeStore {
 
     if (exchange) {
       this.exchange = exchange;
-      this.form.source_amount = this.format(exchange.source_amount);
 
       if (!this.targetSelected)
         this.form.target_amount = this.format(exchange.target_amount);
+      else
+        this.form.source_amount = this.format(exchange.source_amount);
     }
   }
 
