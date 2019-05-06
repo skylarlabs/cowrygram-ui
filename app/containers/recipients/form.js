@@ -7,7 +7,8 @@ import OpSpinner from '../../components/ui/op-spinner';
 
 const mCurrencyOptions = [
   { label: 'Indian Rupee', value: 'INR'},
-  { label: 'United States Dollar', value: 'USD'}
+  { label: 'United States Dollar', value: 'USD'},
+  { label: 'British Pound', value: 'GBP'},
 ];
 
 
