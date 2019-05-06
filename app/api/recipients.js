@@ -6,7 +6,7 @@ class Recipients extends Endpoint {
   }
 
   fetchRecipients = () => this.get('/');
-  addRecipient = (currency, data) => this.post(`/${currency}`, data, { isJson: true });
+  addRecipient = (currency, data) => this.post(`/?currency=${currency}`, data, { isJson: true });
 }
 
 
