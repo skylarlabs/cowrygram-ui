@@ -35,15 +35,19 @@ export default class Endpoint {
       config['params'] = data;
     }
 
-    if (method != 'get') {
-      config['data'] = qs.stringify(data);
+    const headers = {};
+
+    if (conf.isJson) {
+      headers['Content-Type'] = 'application/json';
     }
 
-    const headers = {
-      // 'Content-Type': 'application/json'
-    };
+    if (method != 'get') {
+      config['data'] = conf.isJson ? data : qs.stringify(data);
+    }
+
 
     const token = session.token;
+
     if (token) {
       headers['Authorization'] = `Bearer ${token}`;
     }
@@ -67,8 +71,8 @@ export default class Endpoint {
     return this.fetch(node, 'get', data)
   }
 
-  async post(node, data) {
-    return this.fetch(node, 'post', data)
+  async post(node, data, config) {
+    return this.fetch(node, 'post', data, config)
   }
 
   async put(node, data, config) {

@@ -6,6 +6,9 @@ import { Modal, ModalTitle, ModalBody, ModalFooter } from '../../components/ui/m
 import Template from '../../components/dashboard/template';
 import Spinner from '../../components/ui/progress';
 import Message from '../../components/ui/message';
+import RecipientForm from './form';
+import Select from 'react-select';
+
 
 
 @inject('RecipientStore')
@@ -21,14 +24,11 @@ class AddRecipientModal extends Component {
     return (
       <Modal show={ show } onClose={ this.props.toggle }>
         <ModalTitle>Add Recipient</ModalTitle>
-        <form onSubmit={ this.onSubmit } >
+        <form onSubmit={ this.onSubmit } className="recipient-form">
           { error && <Message className="mb-3">{ error }</Message> }
 
           <ModalBody>
-            <Input className="form-control mb-3 p-4" name="name" placeholder="Recipient Name" required  onChange={ this.onChange } value={ form.name } />
-            <Input className="form-control mb-3 p-4" type="email" name="email" placeholder="Recipient Email Address" required onChange={ this.onChange } value={ form.email } />
-            <Input className="form-control mb-3 p-4" name="bank_account" placeholder="IBAN" required onChange={ this.onChange } value={ form.bank_account } />
-            <Input className="form-control mb-3 p-4" name="swift_code" placeholder="Swift Code" required onChange={ this.onChange } value={ form.swift_code } />
+            <RecipientForm />
           </ModalBody>
 
           <ModalFooter>

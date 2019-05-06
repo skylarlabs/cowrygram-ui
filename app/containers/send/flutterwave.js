@@ -21,8 +21,7 @@ class FlutterWaveComponent extends Component {
 
   onLoad = (e) => {
     this.setState({ loading: false, error: false });
-    money.getFw(this.props.match.params.quoteId).then(data => this.setState({ fw: data[0] })).then(() =>
-      console.log(this.state.fw));
+    money.getFw(this.props.match.params.quoteId).then(data => this.setState({ fw: data[0] }));
   }
 
   onPayClick = e => {
@@ -53,7 +52,7 @@ class FlutterWaveComponent extends Component {
     var handler = window.PaystackPop.setup({
       key: 'pk_test_cff34c5958c71a3cb6b3c0497d5dd55802fe2f2d',
       email: 'tomi.jr@gmail.com',
-      amount: _this.state.fw.amount * 100,
+      amount: Number(String(_this.state.fw.amount).split('.')[0]) * 100,
       currency: "NGN",
       ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
       firstname: 'Tomi',

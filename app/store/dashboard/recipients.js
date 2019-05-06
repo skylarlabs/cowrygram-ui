@@ -4,6 +4,7 @@ import { mapInputToStatex } from '../util';
 import { recipients, money } from '../../api';
 
 import nav from '../nav';
+import mRecipientForm from './recipient-form';
 
 const modalForm = {
   'name': '',
@@ -64,7 +65,7 @@ class RecipientStore {
 
     e.preventDefault();
     this.modal.isLoading = true;
-    const [data, error] = await recipients.addRecipient(this.modal.form);
+    const [data, error] = await recipients.addRecipient(mRecipientForm.currency, mRecipientForm.data);
     this.modal.isLoading = false;
     this.modal.error = error ? error.message : null;
 

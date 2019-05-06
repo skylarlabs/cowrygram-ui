@@ -80,6 +80,18 @@ tbody tr {
 }
 
 
+.recipient-form {
+  .form-control {
+    margin-bottom: 1rem;
+    padding: 1.4rem;
+  }
+
+  .form-row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}
+
 .select--recipient {
   .css-1hwfws3, .css-1wy0on6, .css-czx99k-option {
     cursor: pointer !important;

@@ -11,6 +11,7 @@ class Money extends Endpoint {
 
   setRecipient = (quoteId, recipientId) => this.post(`/recipient/${quoteId}/${recipientId}`);
   transfer = (quoteId) => this.post(`/transfer/${quoteId}`);
+  getRequirements = (data) => this.get(`/requirements`, data);
 }
 
 
