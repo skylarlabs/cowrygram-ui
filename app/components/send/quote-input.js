@@ -11,9 +11,9 @@ class QuoteInput extends Component {
 
     return (
       <div className="form-group form-group-lg position-relative">
-        <label className="quote-label mb-0" htmlFor={ name }>
+        <label className="quote-label mb-0 d-flex" htmlFor={ name }>
           { label }
-          <Spinner show={ loading } klass="quote-spinner d-inline-block ml-1"/>
+          <Spinner show={ loading } klass="quote-spinner ml-1"/>
         </label>
         <div className="input-group">
           <Input className="form-control quote-input" id={ name } placeholder="1,000" name={ name } value={ value } onChange={ onChange } disabled={ disabled }/>
