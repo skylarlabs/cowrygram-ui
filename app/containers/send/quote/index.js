@@ -42,7 +42,7 @@ class QuoteContainer extends Component {
 
               { exchange && <QuoteFees exchange={ exchange }/> }
 
-              <QuoteInput label="You Send" name="source_amount" currency="NGN" icon="flag-ngn" disabled={ true } onChange={ this.onChange } value={ form.source_amount }/>
+              <QuoteInput label="You Pay" name="source_amount" currency="NGN" icon="flag-ngn" disabled={ true } onChange={ this.onChange } value={ form.source_amount }/>
             </div>
 
             <NavLink className={ cls("btn btn-primary btn-block btn-sp font-weight-bold", !link && 'disabled-link') } to={ link }>Continue</NavLink>
