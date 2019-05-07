@@ -31,8 +31,6 @@ class QuoteContainer extends Component {
             <h5 className="font-weight-bold text-center">Send Money</h5>
 
             <div className="py-3">
-              <QuoteInput label="You Send" name="source_amount" currency="NGN" icon="flag-ngn" onChange={ this.onChange } value={ form.source_amount }/>
-              { exchange && <QuoteFees exchange={ exchange }/> }
               <QuoteInput className="form-control mt-3"
                           label="Recipient Gets"
                           name="target_amount"
@@ -41,6 +39,10 @@ class QuoteContainer extends Component {
                           onChange={ this.onChange }
                           onClick={ this.toggleModal }
                           value={ form.target_amount } />
+
+              { exchange && <QuoteFees exchange={ exchange }/> }
+
+              <QuoteInput label="You Send" name="source_amount" currency="NGN" icon="flag-ngn" disabled={ true } onChange={ this.onChange } value={ form.source_amount }/>
             </div>
 
             <NavLink className={ cls("btn btn-primary btn-block btn-sp font-weight-bold", !link && 'disabled-link') } to={ link }>Continue</NavLink>
