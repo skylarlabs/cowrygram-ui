@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import { Input } from '../ui/inputs';
 import { Button } from '../ui/buttons';
 import { cls } from '../util';
+import Spinner from '../ui/progress';
 
 
 class QuoteInput extends Component {
   render() {
-    const { name, label, value, currency, icon, onClick, onChange, disabled } = this.props;
+    const { name, loading, label, value, currency, icon, onClick, onChange, disabled } = this.props;
 
     return (
       <div className="form-group form-group-lg position-relative">
-        <label className="quote-label mb-0" htmlFor={ name }>{ label }</label>
+        <label className="quote-label mb-0" htmlFor={ name }>
+          { label }
+          <Spinner show={ loading } klass="quote-spinner d-inline-block ml-1"/>
+        </label>
         <div className="input-group">
           <Input className="form-control quote-input" id={ name } placeholder="1,000" name={ name } value={ value } onChange={ onChange } disabled={ disabled }/>
           <div className="btn-group" role="group">

@@ -38,7 +38,8 @@ class QuoteContainer extends Component {
                           currency={ form.target }
                           onChange={ this.onChange }
                           onClick={ this.toggleModal }
-                          value={ form.target_amount } />
+                          value={ form.target_amount }
+                          loading={ isLoading } />
 
               { exchange && <QuoteFees exchange={ exchange }/> }
 
