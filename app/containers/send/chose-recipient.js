@@ -29,13 +29,14 @@ class ChoseRecipientContainer extends Component {
   }
 
   componentDidMount = () => {
-    this.quoteStore().fetchQuote(this.getQuoteId());
     this.store().fetch();
+    this.quoteStore().fetchQuote(this.getQuoteId());
   }
 
   render() {
-    const { isLoading, options, selectedRecipient } = this.store();
-    const quoteStore = this.quoteStore();
+    const { isLoading, selectedRecipient, getOptions } = this.store();
+    const { quote } = this.quoteStore();
+    const options = quote ? getOptions(quote.target) : [];
 
     return (
       <Template>
@@ -46,8 +47,12 @@ class ChoseRecipientContainer extends Component {
               <Button className="btn-primary d-inline-block" onClick={ this.toggle }>Add Recipient</Button>
             </div>
             <div>
-              <Select className="select--recipient my-3" options={ options } onChange={ this.onChange } isLoading={ isLoading }/>
-              <RecipientDetail recipient={ selectedRecipient } quote={ quoteStore.quote } />
+              <Select className="select--recipient my-3"
+                      options={ options }
+                      onChange={ this.onChange }
+                      isLoading={ (isLoading || !quote) } />
+
+              <RecipientDetail recipient={ selectedRecipient } quote={ quote } />
               <ActionButton className="btn btn-primary btn-block btn-sp"
                             onClick={ this.onContinue }
                             loading={ this.isLoading }

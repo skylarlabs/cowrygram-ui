@@ -33,7 +33,7 @@ class Header extends Component {
     return (
       <nav className="navbar navbar-expand-md navbar-light nav--main py-3 bg-white border-bottom border-primary">
         <div className="container-fluid px-5">
-          <NavLink className="navbar-brand" to="/app">
+          <NavLink className="navbar-brand" to="/send">
             <img src={ Logo } height="30"/>
           </NavLink>
 

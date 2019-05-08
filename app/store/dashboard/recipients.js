@@ -6,6 +6,7 @@ import { recipients, money } from '../../api';
 import nav from '../nav';
 import mRecipientForm from './recipient-form';
 
+
 const modalForm = {
   'name': '',
   'email': '',
@@ -35,11 +36,20 @@ class RecipientStore {
     this.recipients = error ? [] : data.recipients;
   }
 
-  @computed get options() {
-    return this.recipients.map((recipient, index) => ({
-      value: recipient.id, label: recipient.name, index
-    }));
+  getOptions = (currency) => {
+    console.log(currency);
+
+    return this.recipients
+        .map(
+          (recipient, index) => ({
+            value: recipient.id,
+            label: recipient.name,
+            currency: recipient.currency, index
+          })
+        )
+        .filter((recipient) => (recipient.currency == currency))
   }
+
 
 
   /* select recipient */
