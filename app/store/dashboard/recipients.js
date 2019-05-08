@@ -36,21 +36,17 @@ class RecipientStore {
     this.recipients = error ? [] : data.recipients;
   }
 
-  getOptions = (currency) => {
-    console.log(currency);
-
-    return this.recipients
-        .map(
+  getOptions = (currency) => (
+    this.recipients.
+        map(
           (recipient, index) => ({
             value: recipient.id,
             label: recipient.name,
             currency: recipient.currency, index
           })
-        )
-        .filter((recipient) => (recipient.currency == currency))
-  }
-
-
+        ).
+        filter((recipient) => (recipient.currency == currency))
+  );
 
   /* select recipient */
   @action onRecipientSelected = recipient => this.selectedRecipient = this.recipients[recipient.index];
