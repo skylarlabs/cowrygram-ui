@@ -72,7 +72,7 @@ class FlutterWaveComponent extends Component {
         const { quoteId } = _this.props.match.params;
 
         money.transfer(quoteId).then(data => {
-          _this.props.history.push(`/send/${quoteId}/transfer/success`);
+          _this.props.history.replace(`/send/${quoteId}/transfer/success`);
         });
 
 

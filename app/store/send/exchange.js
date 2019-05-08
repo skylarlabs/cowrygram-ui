@@ -32,13 +32,13 @@ class ExchangeStore {
     this.form.target = currency.currency;
     this.targetCurrency = currency;
 
-    if (!this.form.target_amount)
-      return;
-
     this.fetch();
   }
 
   @action async fetch() {
+    if (!this.form.target_amount)
+      return;
+
     this.isLoading = true;
     let form = toJS(this.form);
 

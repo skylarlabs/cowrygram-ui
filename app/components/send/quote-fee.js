@@ -9,7 +9,7 @@ class QuoteFees extends Component {
       <ul className="quote-fees">
         <li>
           <span className="fee-text-l">{ exchange.fee } NGN</span>
-          <span className="badge badge-secondary p-2">Low Transfer Fee</span>
+          <span className="badge badge-secondary p-2">Service Charge</span>
         </li>
         <li>
           <span className="fee-text-l text-muted pr-2">
@@ -23,7 +23,7 @@ class QuoteFees extends Component {
           <span className="text-muted">Guaranteed Rate</span>
         </li>
         <li>
-          <span className="fee-text-l text-muted">By</span>
+          <span className="fee-text-l text-muted">On or Before</span>
           <span className="text-muted">{ exchange.expected_delivery }</span>
         </li>
       </ul>
