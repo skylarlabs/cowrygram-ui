@@ -31,6 +31,10 @@ class ExchangeStore {
   @action setCurrency = currency  => {
     this.form.target = currency.currency;
     this.targetCurrency = currency;
+
+    if (!this.form.target_amount)
+      return;
+
     this.fetch();
   }
 

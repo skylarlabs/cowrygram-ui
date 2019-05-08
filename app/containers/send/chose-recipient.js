@@ -43,7 +43,7 @@ class ChoseRecipientContainer extends Component {
         <div className="card-body d-flex align-items-center justify-content-center">
           <div className="col-md-10 col-lg-7 border px-md-5 py-4 f-shadow rounded">
             <div className="d-block text-right mb-3">
-              <h5 className="font-weight-bold text-center">Chose Recipient</h5>
+              <h5 className="font-weight-bold text-center">Choose Recipient</h5>
               <Button className="btn-primary d-inline-block" onClick={ this.toggle }>Add Recipient</Button>
             </div>
             <div>

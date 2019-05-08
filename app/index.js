@@ -33,8 +33,7 @@ class App extends Component {
             <Route exact path='/login' component={ LoginContainer } />
             <Route exact path='/register' component={ RegisterContainer } />
 
-            <ProtectedRoute exact path='/send' component={ SendMoneyContainer } />
-            <ProtectedRoute exact path='/send/quote' component={ QuoteContainer } />
+            <ProtectedRoute exact path='/send' component={ QuoteContainer } />
             <ProtectedRoute exact path='/send/:quoteId/recipient' component={ ChoseRecipientContainer } />
             <ProtectedRoute exact path='/send/:quoteId/fund' component={ FundTransferContainer } />
             <ProtectedRoute exact path='/send/:quoteId/transfer/success' component={ TransferStatusContainer } />
