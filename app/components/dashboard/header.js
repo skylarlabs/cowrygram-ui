@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { inject } from 'mobx-react';
 import { NavLink } from 'react-router-dom';
 
 import { cls } from '../util';
+import { Button } from '../ui/buttons';
+
 import User from './user';
 import Logo from '../../../assets/img/logo.png';
+
 
 
 const links = [
@@ -20,12 +24,16 @@ const NavItem = ({ link }) => (
 )
 
 
+@inject('SessionStore')
 class Header extends Component {
+  store = () => this.props.SessionStore;
+
   state = {
     showNav: false
   };
 
   toggle = () => this.setState({ showNav: !this.state.showNav });
+  logout = () => this.store().logout();
 
   render() {
     const { showNav } = this.state;
@@ -40,6 +48,7 @@ class Header extends Component {
           <div className={ cls('collapse navbar-collapse', showNav && 'show') }>
             <ul className="nav d-flex flex-column flex-md-row align-items-center mt-3 mt-md-0 mx-auto">
               { links.map((link, index) => ( <NavItem link={ link } key={`nav-${index}`} /> )) }
+              <span className="cp nav-link text-primary" onClick={ this.logout }>Logout</span>
             </ul>
           </div>
 

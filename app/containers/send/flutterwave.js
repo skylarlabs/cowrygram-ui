@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { inject } from 'mobx-react';
 import { withRouter } from 'react-router-dom';
 import Script from 'react-load-script';
 
@@ -7,8 +8,11 @@ import money from '../../api/money';
 
 
 @withRouter
+@inject('SessionStore')
 class FlutterWaveComponent extends Component {
   scriptUrl = 'https://js.paystack.co/v1/inline.js';
+
+  store = () => this.props.SessionStore;
 
   state = {
     loading: true,
@@ -24,62 +28,44 @@ class FlutterWaveComponent extends Component {
     money.getFw(this.props.match.params.quoteId).then(data => this.setState({ fw: data[0] }));
   }
 
+  async onSuccess(response) {
+    this.setState({ loading: true });
+    const { quoteId } = this.props.match.params;
+
+
+    const [data, error] = await money.verifyTransaction(quoteId, { reference: response.reference });
+
+    if (!error) {
+      const [transfer, err] = await money.transfer(quoteId);
+      if (!err) {
+        this.props.history.replace(`/send/${quoteId}/transfer/success`);
+      }
+      return;
+    };
+
+    this.props.history.replace(`/send/${quoteId}/transfer/failure`);
+  }
+
   onPayClick = e => {
-    var PBFKey = "FLWPUBK_TEST-ab8ec44695dd20c6f70affd21aabd4a1-X";
     const _this = this;
 
-    if (!this.state.fw) return;
-
-/*    window.paySetup = window.getpaidSetup({
-      ...this.state.fw,
-      onclose: function() {},
-      callback: function(response) {
-        var flw_ref = response.tx.flwRef; // collect flwRef returned and pass to a          server page to complete status check.
-        if (
-          response.tx.chargeResponseCode == "00" ||
-          response.tx.chargeResponseCode == "0"
-        ) {
-          paySetup.close();
-
-          window.paySetup = null;
-        } else {
-            _this.props.history.push(`/send/${quoteId}/transfer/failure`);
-          // redirect to a failure page.
-        }
-      }
-    });*/
+    const { user } = this.store();
+    const name = user.name.split(' ');
 
     var handler = window.PaystackPop.setup({
       key: 'pk_test_cff34c5958c71a3cb6b3c0497d5dd55802fe2f2d',
-      email: 'tomi.jr@gmail.com',
       amount: Number(String(_this.state.fw.amount).split('.')[0]) * 100,
+      email: user.email,
       currency: "NGN",
-      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-      firstname: 'Tomi',
-      lastname: 'Hassan',
-      // label: "Optional string that replaces customer email"
-      metadata: {
-         custom_fields: [
-            {
-                display_name: "Mobile Number",
-                variable_name: "mobile_number",
-                value: "+2348012345678"
-            }
-         ]
-      },
+      firstname: name[0],
+      lastname: name.length > 1 ? name[1] : '',
+
       callback: function(response){
-        _this.setState({ loading: true });
-        const { quoteId } = _this.props.match.params;
-
-        money.transfer(quoteId).then(data => {
-          _this.props.history.replace(`/send/${quoteId}/transfer/success`);
-        });
-
-
-          // alert('success. transaction ref is ' + response.reference);
+        _this.onSuccess(response);
       },
+
       onClose: function(){
-          alert('window closed');
+        alert('window closed');
       }
     });
 
@@ -100,3 +86,4 @@ class FlutterWaveComponent extends Component {
 }
 
 export default FlutterWaveComponent;
+

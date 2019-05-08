@@ -1,5 +1,6 @@
 import { observable, action, computed } from 'mobx';
 import { ObjfromSession } from './util';
+import nav from './nav';
 
 
 class SessionStore {
@@ -11,6 +12,16 @@ class SessionStore {
     this.token = data.token;
 
     window.sessionStorage.setItem('token', this.token);
+    window.sessionStorage.setItem('user', JSON.stringify(data.user));
+  }
+
+  @action logout(){
+    window.sessionStorage.clear();
+
+    this.token = null;
+    this.user = null;
+
+    nav.replace('/login');
   }
 
   @computed get isLoggedIn() {

@@ -28,7 +28,7 @@ class TransfersTable extends Component {
                   <td className="text-center">{ index + 1 }</td>
                   <td><span className="badge badge-success">Transfered</span></td>
                   <td>{ transfer.recipient.name }</td>
-                  <td>{ transfer.amount } { transfer.target }</td>
+                  <td>{ transfer.amount } { transfer.recipient.currency }</td>
                   <td>{ transfer.created_at }</td>
                 </tr>
               ))
