@@ -53,7 +53,7 @@ class FlutterWaveComponent extends Component {
     const name = user.name.split(' ');
 
     var handler = window.PaystackPop.setup({
-      key: 'pk_test_cff34c5958c71a3cb6b3c0497d5dd55802fe2f2d',
+      key: 'pk_live_3f871d7c17b07c8496ac45b23fe08d7f50e796ca',
       amount: Number(String(_this.state.fw.amount).split('.')[0]) * 100,
       email: user.email,
       currency: "NGN",
