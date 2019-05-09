@@ -26,19 +26,20 @@ class LoginContainer extends Component {
 
     return (
       <Template>
-        <div className="w-100">
-          <h4 className="font-weight-bold text-center">Welcome Back!</h4>
-          <form className="onboarding-form mx-auto mt-5" onSubmit={ this.onSubmit }>
-            { error && <Message className="mb-3">{ error }</Message> }
-
-            <Input className="form-control mb-3 p-4" type="email" name="email" onChange={ this.onChange } placeholder="Your email address" required />
-            <Input className="form-control mb-3 p-4" type="password" name="password" onChange={ this.onChange } placeholder="Your password" required />
-
-            <NavLink to="/register" className="float-right mb-3 font-weight-bold">Don't have an account ? Register here.</NavLink>
-
-            <ActionButton className="btn-primary btn-sp btn-block font-weight-bold" type="submit" loading={ isLoading }>Log In</ActionButton>
-          </form>
+        <div className="text-center">
+          <h4 className="font-weight-bold">Welcome Back</h4>
+          <h6>Sign In to your Account</h6>
         </div>
+        <form className="onboarding-form mx-auto mt-5" onSubmit={ this.onSubmit }>
+          { error && <Message className="mb-3">{ error }</Message> }
+
+          <Input className="form-control mb-3 p-4" type="email" name="email" onChange={ this.onChange } placeholder="Your email address" required />
+          <Input className="form-control mb-3 p-4" type="password" name="password" onChange={ this.onChange } placeholder="Your password" required />
+
+          <NavLink to="/register" className="float-right mb-3 font-weight-bold">Don't have an account ? Register here.</NavLink>
+
+          <ActionButton className="btn-success btn-sp btn-block font-weight-bold" type="submit" loading={ isLoading }>Sign In</ActionButton>
+        </form>
       </Template>
     )
   }

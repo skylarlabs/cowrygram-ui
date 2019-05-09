@@ -11,7 +11,7 @@ const rules = [
 
   /* img */
   {
-    test: /\.(jpg|png|gif)$/,
+    test: /\.(jpg|png|gif|svg)$/,
     use: [
       {
         loader: 'file-loader',

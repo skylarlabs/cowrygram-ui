@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-
+import LogoLight from '../../../assets/img/logo-light.png';
 
 class Template extends Component {
   render() {
     return (
-      <main className="d-flex h-100">
-        <div className="col-md-12 col-lg-5 col-xl-4 d-flex align-items-center">
-          { this.props.children }
-        </div>
-
-        <div className="col-6 col-lg-7 col-xl-8 bg-primary w-100 d-none d-lg-flex align-items-center justify-content-center">
-          <strong className="text-light">[BeautifulBg]</strong>
+      <main className="h-100">
+        <div className="container-fluid d-flex h-100 hero--onboarding">
+          <div className="col-sm-9 col-md-7 col-lg-5 col-xl-4 m-auto">
+            <img className="logo--onboarding d-block mx-auto my-4" src={ LogoLight }></img>
+            <div className="bg-white rounded p-5 border">
+              { this.props.children }
+            </div>
+          </div>
         </div>
       </main>
     )

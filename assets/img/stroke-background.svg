@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1680px" height="1349px" viewBox="0 0 1680 1349" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="53.4185022%" y1="37.5381521%" x2="59.621262%" y2="79.1685851%" id="linearGradient-1">
+            <stop stop-color="#0076FF" offset="0%"></stop>
+            <stop stop-color="#0158DB" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage/Send-Money" transform="translate(0.000000, -1660.000000)" fill="url(#linearGradient-1)">
+            <g id="Pricing" transform="translate(0.000000, 1660.000000)">
+                <path d="M0,0 C191.397307,88.2248181 472.096149,132.337227 842.096525,132.337227 C1397.09709,132.337227 1585.74494,256.4001 1680,465.441187 C1680,520.804001 1680,815.175244 1680,1348.55492 C1472.98082,1165.57609 1193.67966,1074.08668 842.096525,1074.08668 C518.39256,1074.08668 237.693718,1023.77648 0,923.15609 L0,0 Z" id="Rectangle-11"></path>
+            </g>
+        </g>
+    </g>
+</svg>

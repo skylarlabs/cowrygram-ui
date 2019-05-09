@@ -39,7 +39,7 @@ class Header extends Component {
     const { showNav } = this.state;
 
     return (
-      <nav className="navbar navbar-expand-md navbar-light nav--main py-3 bg-white border-bottom border-primary">
+      <nav className="navbar navbar-expand-md navbar-light nav--main py-3 bg-white border-primary">
         <div className="container-fluid px-5">
           <NavLink className="navbar-brand" to="/send">
             <img src={ Logo } height="30"/>
