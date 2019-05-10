@@ -1,0 +1,45 @@
+@import './theme.scss';
+@import './fonts.scss';
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+body, html {
+  height: 100%;
+}
+
+body {
+  font-family: CircularAir !important;
+}
+
+.logo {
+  width: 170px;
+}
+
+#menu-dropdown a {
+  font-size: 18px;
+  padding: 0 1em;
+}
+
+.hero--main {
+  background: url(../img/header-bg.svg);
+  min-height: 765px;
+  background-size: cover;
+
+  h1 {
+    font-size: 5em;
+  }
+}
+
+.bg-continent {
+  background: url(../img/africa-continent.svg);
+  background-repeat: no-repeat;
+  background-position: top;
+  min-height: 100%;
+}
+
+.fs-3 {
+  font-size: 3em;
+}
+
+.fs-4 {
+  font-size: 4em;
+}
