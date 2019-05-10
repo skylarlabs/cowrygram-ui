@@ -14,7 +14,6 @@ const banner = [
     ` * @project        ${pkg.name}`,
     ` * @author         ${pkg.author}`,
     " * @build          " + $.moment().format("llll") + " ET",
-    " * @release        " + $.gitRevSync.long() + " [" + $.gitRevSync.branch() + "]",
     " * @copyright      Copyright (c) " + $.moment().format("YYYY") + `, ${pkg.copyright}`,
     " *",
     " */",
