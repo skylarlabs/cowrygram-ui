@@ -6,7 +6,6 @@ import { Provider, inject, observer } from 'mobx-react';
 import '../assets/scss/app.scss';
 
 import ProtectedRoute from './components/dashboard/routes';
-
 import LoginContainer from './containers/onboarding/login';
 import RegisterContainer from './containers/onboarding/register';
 
@@ -22,7 +21,40 @@ import TransferStatusContainer from './containers/send/transfer-cb';
 
 import stores from './store';
 
-window.__APP_STATE__ = stores;
+
+const routes = [
+  {
+    path: '/send',
+    component: QuoteContainer
+  },
+
+  {
+    path: '/send/:quoteId/recipient',
+    component: ChoseRecipientContainer
+  },
+
+  {
+    path: '/send/:quoteId/fund',
+    component: FundTransferContainer
+  },
+
+  {
+    path: '/send/:quoteId/transfer/:status',
+    component: TransferStatusContainer
+  },
+
+  {
+    path: '/recipients',
+    component: RecipientContainer
+  },
+
+  {
+    path: '/transfers',
+    component: TransfersContainer
+  },
+
+];
+
 
 class App extends Component {
     render() {
@@ -33,14 +65,11 @@ class App extends Component {
             <Route exact path='/login' component={ LoginContainer } />
             <Route exact path='/register' component={ RegisterContainer } />
 
-            <ProtectedRoute exact path='/send' component={ QuoteContainer } />
-            <ProtectedRoute exact path='/send/:quoteId/recipient' component={ ChoseRecipientContainer } />
-            <ProtectedRoute exact path='/send/:quoteId/fund' component={ FundTransferContainer } />
-            <ProtectedRoute exact path='/send/:quoteId/transfer/:status' component={ TransferStatusContainer } />
+            { routes.map(({ path, component }) =>
+              <ProtectedRoute exact path={ path } component={ component } />)
+            }
 
-            <ProtectedRoute exact path='/recipients' component={ RecipientContainer } />
-            <ProtectedRoute exact path='/transfers' component={ TransfersContainer } />
-          </Switch>
+            </Switch>
         </Router>
       </Provider>
     )

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+
 import { Input } from '../../components/ui/inputs';
 import { Button, ActionButton } from '../../components/ui/buttons';
 import { Modal, ModalTitle, ModalBody, ModalFooter } from '../../components/ui/modal';
+
 import Template from '../../components/dashboard/template';
 import Spinner from '../../components/ui/progress';
 import Message from '../../components/ui/message';

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import Template from '../../components/dashboard/template';
+
 import { Input } from '../../components/ui/inputs';
 import { Button } from '../../components/ui/buttons';
 import { Modal, ModalTitle, ModalBody, ModalFooter } from '../../components/ui/modal';
+
 import Spinner from '../../components/ui/progress';
+import Template from '../../components/dashboard/template';
 
 
 class AddRecipientModal extends Component {

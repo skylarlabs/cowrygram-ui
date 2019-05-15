@@ -1,7 +1,7 @@
 import { observable, action, computed, toJS } from 'mobx';
 import { mapInputToStatex } from '../util';
 
-import money from '../../api/money';
+import { money }from '../../api';
 import session from '../session';
 
 

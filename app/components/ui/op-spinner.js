@@ -4,6 +4,7 @@ import RetryView from './retry-view';
 
 import { cls } from '../util';
 
+
 class OpSpinner extends Component {
   render() {
     const { onRetry, loading, error } = this.props;

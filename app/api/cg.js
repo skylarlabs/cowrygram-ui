@@ -1,6 +1,7 @@
 import Endpoint from './endpoint';
 
-class Money extends Endpoint {
+
+class CgApi extends Endpoint {
   constructor() {
     super('/money');
   }
@@ -16,4 +17,4 @@ class Money extends Endpoint {
 }
 
 
-export default new Money();
+export default new CgApi();

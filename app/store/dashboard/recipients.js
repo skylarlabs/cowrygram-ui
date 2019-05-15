@@ -38,8 +38,7 @@ class RecipientStore {
 
   getOptions = (currency) => (
     this.recipients.
-        map(
-          (recipient, index) => ({
+        map((recipient, index) => ({
             value: recipient.id,
             label: recipient.name,
             currency: recipient.currency, index
@@ -49,7 +48,10 @@ class RecipientStore {
   );
 
   /* select recipient */
-  @action onRecipientSelected = recipient => this.selectedRecipient = this.recipients[recipient.index];
+  @action onRecipientSelected = recipient => {
+    this.selectedRecipient = this.recipients[recipient.index];
+  }
+
   @action async setRecipient(quoteId) {
     this.isLoading = true;
     const [data, error] = await money.setRecipient(quoteId, this.selectedRecipient.id);
@@ -68,8 +70,8 @@ class RecipientStore {
 
   @action async addRecipient(e) {
     if (this.modal.isLoading) return;
-
     e.preventDefault();
+
     this.modal.isLoading = true;
     const [data, error] = await recipients.addRecipient(mRecipientForm.currency, mRecipientForm.data);
     this.modal.isLoading = false;

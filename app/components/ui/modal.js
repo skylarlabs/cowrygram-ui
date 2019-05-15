@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { cls, clsIf } from '../util';
 import { Button } from './buttons';
 
+
 class Modal extends Component {
   render() {
     const { className, children, show, onClose } = this.props;

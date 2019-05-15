@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Select from 'react-select'
+
 import { NavLink } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import { Button, ActionButton } from '../../components/ui/buttons';
 import { cls } from '../../components/util';
+
 import Template from '../../components/dashboard/template';
-import RecipientDetail from '../../components/send/recipient-detail';
 import QuoteInput from '../../components/send/quote-input';
 import QuoteFees from '../../components/send/quote-fee';
+import RecipientDetail from '../../components/send/recipient-detail';
 import AddRecipientModal from '../recipients/modal';
 
 

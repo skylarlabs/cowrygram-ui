@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { inject, observer } from 'mobx-react';
 import Select from 'react-select';
+import { inject, observer } from 'mobx-react';
+
 import { Input } from '../../components/ui/inputs';
 import OpSpinner from '../../components/ui/op-spinner';
 

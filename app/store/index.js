@@ -1,4 +1,3 @@
-import SendMoneyStore from './send-money';
 import SessionStore from './session';
 import onboarding from './onboarding';
 import dashboard from './dashboard';
@@ -10,6 +9,5 @@ export default {
   ...onboarding,
   ...dashboard,
   nav,
-  SessionStore,
-  SendMoneyStore,
+  SessionStore
 };

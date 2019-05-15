@@ -21,7 +21,7 @@ const NavItem = ({ link }) => (
   <li className="nav-item">
     <NavLink to={ link.path } className="nav-link" activeClassName="badge badge-primary px-3 py-2">{ link.name }</NavLink>
   </li>
-)
+);
 
 
 @inject('SessionStore')

@@ -67,7 +67,6 @@ export default class Endpoint {
   }
 
   async get(node, data) {
-    // const params = data ? { params: data } : null;
     return this.fetch(node, 'get', data)
   }
 

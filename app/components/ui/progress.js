@@ -1,6 +1,7 @@
 import React from 'react';
 import { cls } from '../util';
 
+
 const Spinner = (props) => {
   const {show, centered, klass} = props;
 

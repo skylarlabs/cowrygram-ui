@@ -3,6 +3,7 @@ import { mapInputToStatex } from '../util';
 
 import { money } from '../../api';
 
+
 class RecipientFormStore {
   @observable isLoading = false;
   @observable error = null;

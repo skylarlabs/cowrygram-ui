@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { NavLink } from 'react-router-dom';
+
 import { ActionButton } from '../../../components/ui/buttons';
+import { cls } from '../../../components/util';
 import Template from '../../../components/dashboard/template';
 import QuoteInput from '../../../components/send/quote-input';
 import QuoteFees from '../../../components/send/quote-fee';
-import { cls } from '../../../components/util';
-
 import ChoseCurrencyModal from '../../../components/send/currency-modal';
 
 

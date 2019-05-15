@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Template from '../../../components/dashboard/template';
+
 import { Input } from '../../../components/ui/inputs';
 import { Button } from '../../../components/ui/buttons';
+import { Modal, ModalTitle, ModalBody, ModalFooter } from '../../../components/ui/modal';
+import { cls, search }  from '../../../components/util';
+
+import Spinner from '../../../components/ui/progress';
 import Message from '../../../components/ui/message';
 import Badge  from '../../../components/ui/badge';
-import { Modal, ModalTitle, ModalBody, ModalFooter } from '../../../components/ui/modal';
-import Spinner from '../../../components/ui/progress';
-import { cls, search }  from '../../../components/util';
 import currencies from './currencies';
 
 
