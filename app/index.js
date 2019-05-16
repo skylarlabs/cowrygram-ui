@@ -22,37 +22,16 @@ import TransferStatusContainer from './containers/send/transfer-cb';
 import stores from './store';
 
 
+const route = ({ path, component }) => ({ path, component });
+
+
 const routes = [
-  {
-    path: '/send',
-    component: QuoteContainer
-  },
-
-  {
-    path: '/send/:quoteId/recipient',
-    component: ChoseRecipientContainer
-  },
-
-  {
-    path: '/send/:quoteId/fund',
-    component: FundTransferContainer
-  },
-
-  {
-    path: '/send/:quoteId/transfer/:status',
-    component: TransferStatusContainer
-  },
-
-  {
-    path: '/recipients',
-    component: RecipientContainer
-  },
-
-  {
-    path: '/transfers',
-    component: TransfersContainer
-  },
-
+  route('/send', QuoteContainer),
+  route('/send/:quoteId/recipient', ChoseRecipientContainer),
+  route('/send/:quoteId/fund', FundTransferContainer),
+  route('/send/:quoteId/transfer/:status', TransferStatusContainer),
+  route('/recipients', RecipientContainer),
+  route('/transfers', TransfersContainer)
 ];
 
 

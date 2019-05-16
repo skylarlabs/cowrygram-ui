@@ -17,9 +17,7 @@ class PayStackComponent extends Component {
   state = {
     loading: true,
     error: false,
-    fw: null,
-    hash: null,
-    txref: null
+    fw: null
   };
 
 
